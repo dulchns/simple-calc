@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    
+    padding: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 400px;
+    width: 100%;
+    border: 1px solid gainsboro;
+}
+
+.container .screen-output {
+    display: flex;
+    flex-direction: column;
+}
+
+.container .screen-output .inactive-screen,
+.container .screen-output .active-screen {
+    padding-top: 5px;
+    padding-right: 10px;
+    width: 100%;
+    height: 50px;
+    background-color: #f3f6f4;
+    font-size: 1.5em;
+    text-align: right;
+    color: #252525;
+}
+
+.container .screen-output .inactive-screen {
+    padding-top: 10px;
+    font-size: 1.1em;
+    color: #696969;
+}
+
+.container .inputs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .inputs .calc-button {
+    width: 25%;
+    padding: 20px 0;
+    border: 1px solid gainsboro;
+    text-align: center;
+    color: #252525;
+}
+
+.container .inputs .calc-button:hover {
+    background-color: #fafafa;
+}
+
+.container .inputs .calc-button:active {
+    box-shadow: inset 0 0 2px 2px #eeeded;
+}
