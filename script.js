@@ -34,7 +34,7 @@ function resultCalc(str) {
   let [operator] = str.split('').filter((char, index) => isNaN(char) && char !== '.' && index > 0)
   let checkedStr = isNaN(str[0]) ? str.slice(1) : str
   let [a, b] = checkedStr.split(operator)
-  a = isNaN(str[0]) ? Number(-a) : Number(a)
+  a = str[0] === '-' ? Number(-a) : Number(a)
   b = Number(b) || a
 
   let calcFunctions = {
