@@ -1,6 +1,7 @@
 let inactiveScreen = document.querySelector('.inactive-screen')
 let activeScreen = document.querySelector('.active-screen')
 let calcButtons = document.querySelectorAll('.calc-button')
+let savedNum = 0
 
 function getCalcData() {
   let inputStr = ''
@@ -14,6 +15,7 @@ function getCalcData() {
         inactiveScreen.textContent = '0'
         activeScreen.textContent = '0'
         isNanFlag = 0
+        savedNum = 0
         inputStr = ''
       } else if (el.target.textContent === '=' || isNanFlag > 1) {
         inactiveScreen.textContent = inputStr + ' ='
@@ -34,8 +36,14 @@ function resultCalc(str) {
   let [operator] = str.split('').filter((char, index) => isNaN(char) && char !== '.' && index > 0)
   let checkedStr = isNaN(str[0]) ? str.slice(1) : str
   let [a, b] = checkedStr.split(operator)
+
   a = str[0] === '-' ? Number(-a) : Number(a)
-  b = Number(b) || a
+
+  if (savedNum === 0) {
+    savedNum = Number(b) ? Number(b) : a
+  }
+
+  b = Number(b) || savedNum
 
   let calcFunctions = {
     '+': () => a + b,
